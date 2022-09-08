@@ -26,6 +26,7 @@ int main()
     {
     loadData();
     debugPrint();
+    cout << size;
     }
 
 void debugPrint()

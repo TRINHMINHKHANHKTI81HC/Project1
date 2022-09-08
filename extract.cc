@@ -10,7 +10,7 @@ using namespace std;
 int DecToHexDec(int dec, int);
 char hexaDecNum[50];
 string messageData[5];
-string show(int i);
+string arrangeHex(int i);
 
 template <size_t N>
 
@@ -51,14 +51,14 @@ void extractMessageSignal(string dbcFile){
                 splitString(messageData,message);
                 ofstream dbcfile(outputFile, ios::app);
             }else if (startswith(line," SG_")) {
-                string signal = "" + line;
+                string signal =  "" + line;
                 splitString(signalData,signal);
                 ofstream dbcfile(outputFile, ios::app);
                 int i;
                 int decimalNum1 = stoi(messageData[1]);
                 i = DecToHexDec(decimalNum1,0);
-                cout << show(i) <<endl;
-                dbcfile <<"0x" << show(i) << " " << messageData[3] << " "
+                cout << arrangeHex(i) <<endl;
+                dbcfile <<"0x" << arrangeHex(i) << " " << messageData[3] << " "
                         << signalData[1] << " " << signalData[3] << " "
                         << signalData[4] << " " << signalData[5] << " "
                         << signalData[6] << " \n";
@@ -97,7 +97,7 @@ int DecToHexDec(int dec, int i){
     return i;
 }
 
-string show(int i){
+string arrangeHex(int i){
     string temp ;
     for(i=i-1; i>=0; i--){
         //cout<<hexaDecNum[i];
