@@ -50,7 +50,6 @@ void loadData()
 {   
     for (int i = 0; i < number_of_lines; i++)
     {
-        ifstream in("CAN_config1.txt");
         if (!in)
         {                                               
             cerr << "File can't be opened! " << endl;
