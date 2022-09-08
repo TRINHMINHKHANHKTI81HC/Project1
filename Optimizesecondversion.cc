@@ -8,9 +8,9 @@ using namespace std;
   static int number_of_lines;
   string name_variables;  //signal of CANID
   string canid;           // number of CAN ID
-  uint16_t canlength;       // length of frame in byte
-  uint8_t startbit;    //start bit of canid
-  uint16_t length;      // lengthbit of canid
+  string canlength;       // length of frame in byte
+  string  startbit;    //start bit of canid
+  string length;      // lengthbit of canid
   double scale;           // scale value
   double offset;          // offset value
   string line;

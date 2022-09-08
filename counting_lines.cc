@@ -27,8 +27,7 @@ int numberoflines(){
     string line;
     ifstream myfile("CAN_config1.txt");
     if(myfile.is_open()){
-        while(!myfile.eof()){
-            getline(myfile,line);
+        while(getline(myfile,line)){
             number_of_lines++;
         }
         myfile.close();
