@@ -1,31 +1,53 @@
-// C++ program to implement
-// the above approach
-#include<iostream>
+#include <iostream>
+#include <string>
+#include <fstream>
 using namespace std;
- 
-class Employee
+
+
+
+ifstream in("file.txt");
+const int SIZE = 15;
+void debugPrint();
+void loadData();
+
+struct Records {
+    string firstname;
+    string secondname;
+    float test1mark;
+    float midtestmark;
+    float annualmark;   
+}record[SIZE];
+
+int main()
+    {
+    loadData();
+    debugPrint();
+    }
+
+void debugPrint()
 {
-  int id;
-  char name[30];
-  public:
-  void getdata();//Declaration of function
-  void putdata();//Declaration of function
-};
-void Employee::getdata(){//Defining of function
-  cout<<"Enter Id : ";
-  cin>>id;
-  cout<<"Enter Name : ";
-  cin>>name;
+    for (int i = 0; i < SIZE; i++) 
+    {
+        cout << record[i].firstname << "  ";
+        cout << record[i].secondname << " ";
+        cout << record[i].test1mark << "  ";
+        cout << record[i].midtestmark << "  ";
+        cout << record[i].annualmark << "  " <<endl;        
+    }
+    system("PAUSE");
 }
-void Employee::putdata(){//Defining of function
-  cout<<id<<" ";
-  cout<<name<<" ";
-  cout<<endl;
-}
-int main(){
-  Employee emp; //One member
-  emp.getdata();//Accessing the function
-  emp.putdata();//Accessing the function
-  return 0;
- 
+
+void loadData()
+{   
+    for (int i = 0; i < SIZE; i++)
+    {
+        if (!in)
+        {                                               
+            cerr << "File can't be opened! " << endl;
+            system("PAUSE");
+        }
+
+        in >> record[i].firstname >> record[i].secondname
+        >> record[i].test1mark >> record[i].midtestmark >> record[i].annualmark;
+    }
 }
