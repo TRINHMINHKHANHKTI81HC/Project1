@@ -1,6 +1,6 @@
-0x612 6 TotalOdometerMileage 16 32  0.1 0   
-0x631 8 ThrottlePercentage 16 16 1 0   
-0x611 7 MCUDCVoltage 16 16 0.0078125 0   
-0x610 8 BrakeStatus 11 1 1 0   
-0x603 4 Mileage 0 16 0.1 0   
-0x633 8 Side_Stand_status 48 1 1 0  
+0x633 8 Side_Stand_status 48 1 1   1 0  
+0x612 6 TotalOdometerMileage 16 32 1   0.1 0  
+0x631 8 ThrottlePercentage 16 16 1   1 0  
+0x611 7 MCUDCVoltage 16 16 1   0.0078125 0  
+0x610 8 BrakeStatus 11 1 1   1 0  
+0x603 4 Mileage 0 16 1   0.1 0  

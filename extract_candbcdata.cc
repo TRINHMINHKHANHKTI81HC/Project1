@@ -59,9 +59,8 @@ void extractMessageSignal(string dbcFile){
                 i = DecToHexDec(decimalNum1,0);
                 cout << arrangeHex(i) <<endl;
                 dbcfile <<"0x" << arrangeHex(i) << " " << messageData[3] << " "
-                        << signalData[1] << " " << signalData[3] << " "
-                        << signalData[4] << " " << signalData[5] << " "
-                        << signalData[6] << " \n";
+                        << signalData[1] << " " << signalData[3] << " " << signalData[4]
+                        << " \n";
             }
         }
         myfile.close();

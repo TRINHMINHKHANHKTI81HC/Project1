@@ -6,37 +6,42 @@ using namespace std;
 
 static int number_of_lines;
 ifstream in("CAN_config1.txt");
-const int SIZE = 6;
+const int SIZE = 1000;
 void debugPrint();
 void loadData();
 int numberoflines();
 
 struct Canconfigure {
-    string name_variables;
     string canid;
-    string canlength;       
+    string canlength; 
+    string name_variables; 
     string startbit;    
     string length;      
     double scale;          
     double offset;
+    string endian;
 }canconfigure[SIZE];
 
 int main()
     {
+    numberoflines();
     loadData();
     debugPrint();
-    numberoflines();
-    cout << canconfigure[0].canid << endl;
-    cout << canconfigure[0].canlength << endl;
-    cout << canconfigure[1].name_variables << endl;
-    cout << canconfigure[1].startbit << endl;
+    cout << canconfigure[0].canid << " "; //kiem tra lai thanh phan trong struct
+    cout << canconfigure[0].name_variables << " " ; 
+    cout << canconfigure[0].canlength << " "; 
+    cout << canconfigure[0].startbit << " ";
+    cout << canconfigure[0].length << " " ;
+    cout << canconfigure[0].scale << " ";
+    cout << canconfigure[0].offset << " " ;
+    cout << canconfigure[0].endian << " ";
     cout << "The number of lines is: " << number_of_lines << endl;
     return 0;
     }
 
 void debugPrint()
 {
-    for (int i = 0; i < SIZE; i++) 
+    for (int i = 0; i < number_of_lines; i++) 
     {
         cout << canconfigure[i].canid << " ";
         cout << canconfigure[i].canlength << " ";
@@ -44,21 +49,23 @@ void debugPrint()
         cout << canconfigure[i].startbit << " ";
         cout << canconfigure[i].length << " " ;
         cout << canconfigure[i].scale <<" ";
-        cout << canconfigure[i].offset <<" " << endl ;
+        cout << canconfigure[i].offset <<" " ;
+        cout << canconfigure[i].endian << " " << endl;
     }
-    system("PAUSE");
 }
+
 
 void loadData()
 {   
-    for (int i = 0; i < SIZE; i++)
+    for (int i = 0; i < number_of_lines; i++)
     {
+        int temp;
         if (!in)
         {                                               
             cerr << "File can't be opened! " << endl;
             system("PAUSE");
         }
-        in >> canconfigure[i].canid >> canconfigure[i].canlength >> canconfigure[i].name_variables >> canconfigure[i].startbit >> canconfigure[i].length >> canconfigure[i].scale >>canconfigure[i].offset;
+        in >> canconfigure[i].canid >> canconfigure[i].canlength >> canconfigure[i].name_variables >> canconfigure[i].startbit >> canconfigure[i].length  >> canconfigure[i].endian >> canconfigure[i].scale >>canconfigure[i].offset;
     }
 }
 

@@ -18,8 +18,8 @@ void deletespecialcharacters(string txtfile){
        replace(line.begin(), line.end(), '[', ' ');
        replace(line.begin(), line.end(), ']', ' ');
        replace(line.begin(), line.end(), '-', ' ');
-       replace(line.begin(), line.end(), '+', ' ');
        replace(line.begin(), line.end(), ',', ' ');
+       replace(line.begin(), line.end(), '+', ' ');
        newfile << line << endl;
    }
    myfile.close();
